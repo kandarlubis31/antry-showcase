@@ -1,4 +1,4 @@
-# 🐜 Antry — Pembagi Jam Akses biar Server Nggak Tumbang
+# Antry — Pembagi Jam Akses biar Server Nggak Tumbang
 
 <div align="center">
 
@@ -16,7 +16,7 @@
 
 ---
 
-## ❌ Masalahnya
+## Masalahnya
 
 Bukan serangan. Bukan bug. Cuma **500 orang yang membuka situs di detik yang sama**.
 
@@ -27,7 +27,7 @@ beruntun itu justru menyelesaikan pekerjaan yang sudah dimulai beban awal.
 Host tidak punya cara bilang *"jangan sekarang, coba jam 10:30"* tanpa menempel pengumuman di
 tempat yang tidak dibaca siapa pun.
 
-## ✅ Antry
+## Antry
 
 Antry memotong trafik jadi **sesi waktu yang bisa dipesan**. Host membuat antrean, membagikan
 satu tautan, pengunjung memilih hari dan jam — tanpa akun, tanpa aplikasi, tanpa antre di depan
@@ -36,23 +36,23 @@ layar.
 **500 pengunjung → 24 sesi × 50 kursi.** Server tetap hidup, pengunjung tetap dapat akses, host
 punya data siapa datang kapan.
 
-### ✨ Fitur
+### Fitur
 
-- 🗓️ **Antrean sesi** — slot 30 menit (atau mode harian), kuota per sesi, tautan pendek `/a/[kode]`
-- 🟢 **Rekomendasi jam sepi** — sesi dengan okupansi terendah ditandai `Direkomendasi · jam sepi`,
+- **Antrean sesi** — slot 30 menit (atau mode harian), kuota per sesi, tautan pendek `/a/[kode]`
+- **Rekomendasi jam sepi** — sesi dengan okupansi terendah ditandai `Direkomendasi · jam sepi`,
   lengkap dengan tombol **Pakai jam ini**
-- 📊 **Bar beban per sesi** — hijau / kuning / merah, plus peringatan saat sesi pilihan hampir penuh
-- 🧭 **Wizard 3 langkah** untuk host — nama & tanggal → jam & kuota → simpan & tautan
-- 🔥 **Heatmap hari × jam** — host langsung lihat jam mana yang menumpuk
-- 👥 **Daftar peserta + check-in** — kode booking, nama otomatis, penanda kesamaan perangkat
-- 📢 **Pengumuman per situs** — gangguan, jam ramai, pemeliharaan, dengan laporan dari pengunjung
-- 🛡️ **Panel admin** — setujui host baru, tinjau laporan, tarik pengumuman palsu
-- 🧑‍🎓 **Kode akses per perangkat** — satu perangkat satu booking per antrean, tanpa akun peserta
-- 📱 **Mobile-first** — alur pilih sesi dirancang untuk dibuka dari WhatsApp di layar kecil
+- **Bar beban per sesi** — hijau / kuning / merah, plus peringatan saat sesi pilihan hampir penuh
+- **Wizard 3 langkah** untuk host — nama & tanggal → jam & kuota → simpan & tautan
+- **Heatmap hari × jam** — host langsung lihat jam mana yang menumpuk
+- **Daftar peserta + check-in** — kode booking, nama otomatis, penanda kesamaan perangkat
+- **Pengumuman per situs** — gangguan, jam ramai, pemeliharaan, dengan laporan dari pengunjung
+- **Panel admin** — setujui host baru, tinjau laporan, tarik pengumuman palsu
+- **Kode akses per perangkat** — satu perangkat satu booking per antrean, tanpa akun peserta
+- **Mobile-first** — alur pilih sesi dirancang untuk dibuka dari WhatsApp di layar kecil
 
 ---
 
-## 📸 Tampilan
+## Tampilan
 
 <div align="center">
 
@@ -98,28 +98,28 @@ punya data siapa datang kapan.
 
 ---
 
-## 🏗️ Arsitektur
+## Arsitektur
 
 ```mermaid
 flowchart TB
-    subgraph VISITOR["🖥️ Pengunjung (tanpa akun)"]
+    subgraph VISITOR["Pengunjung (tanpa akun)"]
         BOARD["Papan akses publik<br/>status & jadwal"]
         QUEUE["Pilih sesi<br/>/a/[kode]"]
         TICKET["Tiket akses<br/>kode booking"]
     end
-    subgraph HOST["🧑‍💼 Host"]
+    subgraph HOST["Host"]
         WIZARD["Wizard antrean<br/>3 langkah"]
         MANAGE["Kelola antrean<br/>QR · kuota · peserta"]
         STATS["Statistik<br/>heatmap & tren"]
     end
-    subgraph ADMIN["🛡️ Admin"]
+    subgraph ADMIN["Admin"]
         REVIEW["Tinjauan konten<br/>laporan · host baru"]
     end
-    subgraph APP["⚙️ Next.js App Router"]
+    subgraph APP["Next.js App Router"]
         ACTION["Server Actions"]
         AUTH["Better Auth<br/>admin · host · viewer"]
     end
-    subgraph DATA["🗄️ Data"]
+    subgraph DATA["Data"]
         PG[("Neon Postgres")]
         DRIZ["Drizzle ORM"]
         PGL[("PGlite<br/>dev lokal")]
@@ -148,7 +148,7 @@ Keputusan desain yang penting:
 
 ---
 
-## 🧰 Stack
+## Stack
 
 | Lapisan | Teknologi |
 | :--- | :--- |
@@ -164,7 +164,7 @@ Keputusan desain yang penting:
 
 ---
 
-## 📌 Status
+## Status
 
 Proyek ini **berjalan sebagai produk**, dan source code-nya disimpan privat.
 
@@ -177,6 +177,16 @@ Untuk pertanyaan, demo, atau diskusi teknis: buka issue di repository ini.
 
 ---
 
+## English
+
+**Antry** is a session-based access queue for any website. Hosts create a queue, share one short link, and visitors book a time slot instead of arriving at the same second and hammering refresh. No visitor account is needed — a per-device code is enough.
+
+The point is to cut the retry storm: 500 visitors become 24 sessions of 50 seats, and the host gets data on who arrives when. Hosts and admins sign in; the public board, booking flow, and error articles stay open.
+
+The source code is not published; this repository documents the product.
+
+---
+
 <div align="center">
 
 **Dibuat oleh [Kandar Lubis](https://github.com/kandarlubis31)**
@@ -185,7 +195,7 @@ Untuk pertanyaan, demo, atau diskusi teknis: buka issue di repository ini.
 
 ---
 
-## 📄 Lisensi
+## Lisensi
 
 **All Rights Reserved.** Copyright © 2026 Kandar Lubis.
 
